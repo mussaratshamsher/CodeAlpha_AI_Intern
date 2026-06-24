@@ -1,0 +1,12 @@
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+pydantic==2.9.2
+python-dotenv==1.0.1
+
+# HTTP client - pin to version that supports 'proxies' parameter
+httpx==0.26.0
+
+# Groq via OpenAI-compatible API client
+openai==1.40.6
+
+
