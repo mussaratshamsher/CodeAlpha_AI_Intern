@@ -10,7 +10,7 @@ app = FastAPI(title="AI Language Assistant")
 # CORS (frontend on different origin)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["https://multilingual-agent.vercel.app/", "http://localhost:8000"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

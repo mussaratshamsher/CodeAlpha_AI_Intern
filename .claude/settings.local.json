@@ -2,7 +2,10 @@
   "permissions": {
     "allow": [
       "Bash(curl -s -X POST http://localhost:8000/api/chat -H \"Content-Type: application/json\" -d '{\"\"question\"\":\"\"hello\"\"}')",
-      "Bash(npm run build)"
+      "Bash(npm run build)",
+      "Bash(pip install ultralytics opencv-python numpy -q)",
+      "Bash(python main.py)",
+      "Bash(python -c \"import cv2; cap1 = cv2.VideoCapture\\(''data/sample1.mp4''\\); print\\(''sample1.mp4:'', int\\(cap1.get\\(3\\)\\), ''x'', int\\(cap1.get\\(4\\)\\)\\); cap2 = cv2.VideoCapture\\(''data/sample2.mp4''\\); print\\(''sample2.mp4:'', int\\(cap2.get\\(3\\)\\), ''x'', int\\(cap2.get\\(4\\)\\)\\)\")"
     ]
   }
 }
