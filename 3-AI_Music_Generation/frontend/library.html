@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Library | AI Music Studio</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"></script>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body class="bg-slate-950 text-white">
+
+<div class="background-glow"></div>
+
+<nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b border-white/10 bg-black/20">
+
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+
+<div class="flex items-center gap-3">
+
+<div class="logo-box">
+🎵
+</div>
+
+<div>
+<h1 class="font-bold">
+AI Music Studio
+</h1>
+
+<p class="text-xs text-white/50">
+My Music Library
+</p>
+</div>
+
+</div>
+
+<div class="hidden md:flex gap-8">
+
+<a href="index.html">Home</a>
+
+<a href="generate.html">Generate</a>
+
+<a href="library.html">Library</a>
+
+</div>
+
+<!-- Mobile dropdown -->
+<div class="lg:hidden relative">
+
+<button
+  id="mobileNavBtn"
+  type="button"
+  class="inline-flex items-center justify-center w-10 h-10 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition"
+  aria-haspopup="true"
+  aria-expanded="false"
+  aria-controls="mobileNavMenu"
+>
+  ☰
+</button>
+
+<div
+  id="mobileNavMenu"
+  class="hidden absolute right-0 mt-2 w-44 rounded-xl border border-white/10 bg-black/80 backdrop-blur-xl overflow-hidden"
+>
+  <a href="index.html" class="block px-4 py-3 hover:bg-white/5">Home</a>
+  <a href="generate.html" class="block px-4 py-3 hover:bg-white/5">Generate</a>
+  <a href="library.html" class="block px-4 py-3 hover:bg-white/5">Library</a>
+</div>
+
+</div>
+
+</div>
+
+</nav>
+
+<main class="pt-32 pb-20">
+
+<div class="max-w-7xl mx-auto px-6">
+
+<div class="mb-10">
+
+<div class="badge">
+📚 Saved Creations
+</div>
+
+<h1 class="hero-title text-5xl">
+My Library
+</h1>
+
+<p class="hero-subtitle">
+All generated MIDI tracks are stored locally in your browser.
+</p>
+
+</div>
+
+<!-- Search -->
+
+<div class="generator-card mb-8">
+
+<input
+id="searchInput"
+type="text"
+placeholder="Search by seed notes..."
+class="input"
+/>
+
+</div>
+
+<!-- Actions -->
+
+<div class="flex flex-wrap gap-3 mb-8">
+
+<button
+id="clearLibraryBtn"
+class="secondary-btn"
+>
+🗑 Clear Library
+</button>
+
+</div>
+
+<!-- Stats -->
+
+<div class="grid md:grid-cols-3 gap-4 mb-8">
+
+<div class="stat-card">
+<h3 id="totalTracks">0</h3>
+<p>Total Tracks</p>
+</div>
+
+<div class="stat-card">
+<h3 id="latestTrack">0</h3>
+<p>Recent Items</p>
+</div>
+
+<div class="stat-card">
+<h3>MIDI</h3>
+<p>Storage Type</p>
+</div>
+
+</div>
+
+<!-- Library Grid -->
+
+<div
+id="libraryGrid"
+class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+>
+</div>
+
+<!-- Empty State -->
+
+<div
+id="emptyState"
+class="hidden text-center py-20"
+>
+
+<div class="text-6xl mb-4">
+🎵
+</div>
+
+<h2 class="text-2xl font-bold mb-2">
+No Music Yet
+</h2>
+
+<p class="text-white/60 mb-6">
+Generate your first melody to see it here.
+</p>
+
+<a
+href="generate.html"
+class="primary-btn"
+>
+Generate Music
+</a>
+
+</div>
+
+</div>
+
+</main>
+
+<script src="js/library.js"></script>
+
+
+<script>
+(function () {
+  const btn = document.getElementById('mobileNavBtn');
+  const menu = document.getElementById('mobileNavMenu');
+  if (!btn || !menu) return;
+
+  const close = () => {
+    menu.classList.add('hidden');
+    btn.setAttribute('aria-expanded', 'false');
+  };
+
+  const open = () => {
+    menu.classList.remove('hidden');
+    btn.setAttribute('aria-expanded', 'true');
+  };
+
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = !menu.classList.contains('hidden');
+    if (isOpen) close();
+    else open();
+  });
+
+  document.addEventListener('click', close);
+})();
+</script>
+
+</body>
+</html>

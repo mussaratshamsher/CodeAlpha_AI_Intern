@@ -1,0 +1,394 @@
+/* =========================
+   GLOBAL
+========================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Inter,system-ui,sans-serif;
+  background:#050816;
+  color:white;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.background-glow{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+
+  background:
+  radial-gradient(circle at 20% 20%, rgba(139,92,246,.25), transparent 30%),
+  radial-gradient(circle at 80% 20%, rgba(6,182,212,.18), transparent 35%),
+  radial-gradient(circle at 50% 90%, rgba(236,72,153,.15), transparent 35%);
+
+  filter:blur(60px);
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.logo-box{
+  width:48px;
+  height:48px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:16px;
+
+  background:linear-gradient(
+  135deg,
+  #8B5CF6,
+  #06B6D4
+  );
+}
+
+/* =========================
+   HERO
+========================= */
+
+.badge{
+  display:inline-flex;
+
+  padding:.8rem 1rem;
+
+  border-radius:999px;
+
+  background:rgba(255,255,255,.05);
+
+  border:1px solid rgba(255,255,255,.08);
+
+  margin-bottom:2rem;
+}
+
+.hero-title{
+  font-size:4rem;
+  font-weight:900;
+  line-height:1.1;
+}
+
+.gradient-text{
+  display:block;
+
+  background:
+  linear-gradient(
+  90deg,
+  #8B5CF6,
+  #EC4899,
+  #06B6D4
+  );
+
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.hero-subtitle{
+  margin-top:1.5rem;
+
+  color:rgba(255,255,255,.7);
+
+  font-size:1.1rem;
+
+  max-width:600px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.primary-btn{
+  display:inline-flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  padding:14px 24px;
+
+  border-radius:14px;
+
+  font-weight:700;
+
+  color:black;
+
+  background:
+  linear-gradient(
+  135deg,
+  #8B5CF6,
+  #06B6D4
+  );
+
+  transition:.3s;
+}
+
+.primary-btn:hover{
+  transform:translateY(-3px);
+}
+
+.secondary-btn{
+  display:inline-flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  padding:14px 24px;
+
+  border-radius:14px;
+
+  border:1px solid rgba(255,255,255,.15);
+
+  background:rgba(255,255,255,.05);
+
+  transition:.3s;
+}
+
+.secondary-btn:hover{
+  background:rgba(255,255,255,.1);
+}
+
+/* =========================
+   GLASS
+========================= */
+
+.hero-card,
+.feature-card,
+.glass-card{
+
+  background:
+  rgba(255,255,255,.05);
+
+  border:
+  1px solid rgba(255,255,255,.08);
+
+  backdrop-filter:blur(20px);
+
+  border-radius:24px;
+}
+
+.hero-card{
+
+  height:420px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+}
+
+.music-wave{
+
+  font-size:4rem;
+
+  animation:float 3s ease infinite;
+}
+
+/* =========================
+   FEATURES
+========================= */
+
+.section-title{
+  font-size:2.2rem;
+  font-weight:800;
+  text-align:center;
+}
+
+.feature-card{
+
+  padding:2rem;
+
+  text-align:center;
+
+  transition:.3s;
+}
+
+.feature-card:hover{
+
+  transform:
+  translateY(-8px);
+
+  border-color:
+  rgba(139,92,246,.4);
+}
+
+.feature-card h3{
+
+  margin-top:1rem;
+
+  margin-bottom:.5rem;
+
+  font-size:1.1rem;
+}
+
+.feature-card p{
+  color:rgba(255,255,255,.6);
+}
+
+/* =========================
+   DASHBOARD
+========================= */
+
+.sidebar{
+
+  width:280px;
+
+  background:
+  rgba(255,255,255,.05);
+
+  border-right:
+  1px solid rgba(255,255,255,.08);
+
+  backdrop-filter:blur(20px);
+}
+
+.sidebar-link{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+
+  padding:14px;
+
+  border-radius:12px;
+
+  transition:.3s;
+}
+
+.sidebar-link:hover{
+
+  background:
+  rgba(255,255,255,.08);
+}
+
+.generator-card{
+
+  background:
+  rgba(255,255,255,.05);
+
+  border:
+  1px solid rgba(255,255,255,.08);
+
+  border-radius:24px;
+
+  padding:2rem;
+}
+
+.input{
+
+  width:100%;
+
+  padding:14px;
+
+  border-radius:12px;
+
+  border:
+  1px solid rgba(255,255,255,.1);
+
+  background:
+  rgba(0,0,0,.2);
+
+  color:white;
+}
+
+.input:focus{
+  outline:none;
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stat-card{
+
+  padding:1.5rem;
+
+  text-align:center;
+
+  background:
+  rgba(255,255,255,.05);
+
+  border:
+  1px solid rgba(255,255,255,.08);
+
+  border-radius:20px;
+}
+
+.stat-card h3{
+  font-size:2rem;
+  font-weight:800;
+}
+
+/* =========================
+   LIBRARY
+========================= */
+
+.track-card{
+
+  padding:1.5rem;
+
+  border-radius:20px;
+
+  background:
+  rgba(255,255,255,.05);
+
+  border:
+  1px solid rgba(255,255,255,.08);
+
+  transition:.3s;
+}
+
+.track-card:hover{
+  transform:translateY(-5px);
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes float{
+
+  0%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-15px);
+  }
+
+  100%{
+    transform:translateY(0);
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+  .hero-title{
+    font-size:2.8rem;
+  }
+
+  .hero-card{
+    height:250px;
+  }
+
+}
+
