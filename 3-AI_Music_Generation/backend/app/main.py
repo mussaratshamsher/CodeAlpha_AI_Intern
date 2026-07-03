@@ -12,7 +12,8 @@ app = FastAPI(title="MusicGen AI (MIDI Generator)", version="0.1.0")
 # If you serve frontend from another port (e.g. file:// or 5500), browsers require explicit allow-list.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[ "*" 
+    allow_origins=[  "http://127.0.0.1:5500",
+    "https://ms-music-generation.vercel.app/",
     ],
     allow_credentials=True,
     allow_methods=["*"],

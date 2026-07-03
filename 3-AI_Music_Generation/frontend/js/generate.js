@@ -2,7 +2,7 @@
 // CONFIG
 // ===================================
 
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = "https://mussarat123shamsher-ai-music-generation.hf.space";
 
 const STORAGE_KEY = "musicgen_ai_library_v1";
 
