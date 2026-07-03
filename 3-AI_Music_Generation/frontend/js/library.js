@@ -1,4 +1,5 @@
 const STORAGE_KEY = "musicgen_ai_library_v1";
+const API_URL = "https://mussarat123shamsher-ai-music-generation.hf.space";
 
 const libraryGrid = document.getElementById("libraryGrid");
 const emptyState = document.getElementById("emptyState");
@@ -112,9 +113,24 @@ function deleteTrack(id) {
   renderLibrary();
 }
 
-function updateStats(items) {
-  document.getElementById("totalTracks").textContent = items.length;
-  document.getElementById("latestTrack").textContent = Math.min(items.length, 5);
+function updateStats(items){
+
+  document.getElementById("totalTracks")
+    .textContent = items.length;
+
+  document.getElementById("latestTrack")
+    .textContent =
+      items.length > 0
+      ? "Active"
+      : "None";
+
+  const counter =
+    document.getElementById("trackCounter");
+
+  if(counter){
+    counter.textContent =
+      `${items.length} Track${items.length !== 1 ? "s" : ""}`;
+  }
 }
 
 function renderLibrary(search = "") {

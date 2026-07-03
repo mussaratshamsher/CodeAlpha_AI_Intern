@@ -84,104 +84,138 @@ My Music Library
 
 <div class="max-w-7xl mx-auto px-6">
 
-<div class="mb-10">
+  <!-- Hero -->
 
-<div class="badge">
-📚 Saved Creations
-</div>
+  <div class="mb-12">
 
-<h1 class="hero-title text-5xl">
-My Library
-</h1>
+    <div class="badge">
+      📚 AI Music Collection
+    </div>
 
-<p class="hero-subtitle">
-All generated MIDI tracks are stored locally.
-</p>
+    <h1 class="hero-title text-5xl lg:text-6xl">
+      My Library
+    </h1>
 
-</div>
+    <p class="hero-subtitle max-w-2xl">
+      Browse, play, download and manage all AI-generated music tracks.
+    </p>
 
-<!-- Search -->
+  </div>
 
-<div class="generator-card mb-8">
+  <!-- Dashboard Stats -->
 
-<input
-id="searchInput"
-type="text"
-placeholder="Search by seed notes..."
-class="input"
-/>
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-5 mb-10">
 
-</div>
+    <div class="stat-card">
+      <div class="text-4xl mb-2">🎵</div>
+      <h3 id="totalTracks">0</h3>
+      <p>Total Tracks</p>
+    </div>
 
-<!-- Actions -->
+    <div class="stat-card">
+      <div class="text-4xl mb-2">⚡</div>
+      <h3 id="latestTrack">0</h3>
+      <p>Latest Generated</p>
+    </div>
 
-<div class="flex flex-wrap gap-3 mb-8">
+    <div class="stat-card">
+      <div class="text-4xl mb-2">💾</div>
+      <h3>MIDI</h3>
+      <p>Storage Format</p>
+    </div>
 
-<button
-id="clearLibraryBtn"
-class="secondary-btn"
->
-🗑 Clear Library
-</button>
+    <div class="stat-card">
+      <div class="text-4xl mb-2">🤖</div>
+      <h3>AI</h3>
+      <p>LSTM Powered</p>
+    </div>
 
-</div>
+  </div>
 
-<!-- Stats -->
+  <!-- Controls -->
 
-<div class="grid md:grid-cols-3 gap-4 mb-8">
+  <div class="generator-card mb-10">
 
-<div class="stat-card">
-<h3 id="totalTracks">0</h3>
-<p>Total Tracks</p>
-</div>
+    <div class="flex flex-col lg:flex-row gap-4">
 
-<div class="stat-card">
-<h3 id="latestTrack">0</h3>
-<p>Recent Items</p>
-</div>
+      <input
+        id="searchInput"
+        type="text"
+        placeholder="🔍 Search tracks by seed notes..."
+        class="input flex-1"
+      />
 
-<div class="stat-card">
-<h3>MIDI</h3>
-<p>Storage Type</p>
-</div>
+      <button
+        id="clearLibraryBtn"
+        class="secondary-btn whitespace-nowrap"
+      >
+        🗑 Clear Library
+      </button>
 
-</div>
+    </div>
 
-<!-- Library Grid -->
+  </div>
 
-<div
-id="libraryGrid"
-class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
->
-</div>
+  <!-- Section Header -->
 
-<!-- Empty State -->
+  <div class="flex items-center justify-between mb-6">
 
-<div
-id="emptyState"
-class="hidden text-center py-20"
->
+    <div>
 
-<div class="text-6xl mb-4">
-🎵
-</div>
+      <h2 class="text-2xl font-bold">
+        Music Collection
+      </h2>
 
-<h2 class="text-2xl font-bold mb-2">
-No Music Yet
-</h2>
+      <p class="text-white/50">
+        Generated tracks stored locally
+      </p>
 
-<p class="text-white/60 mb-6">
-Generate your first melody.
-</p>
+    </div>
 
-<a
-href="generate.html"
-class="primary-btn"
->
-Generate Music
-</a>
+    <div
+      id="trackCounter"
+      class="px-4 py-2 rounded-full bg-violet-500/20 border border-violet-500/20 text-violet-300"
+    >
+      0 Tracks
+    </div>
 
-</div>
+  </div>
+
+  <!-- Library Grid -->
+
+  <div
+    id="libraryGrid"
+    class="grid md:grid-cols-2 xl:grid-cols-3 gap-6"
+  >
+  </div>
+
+  <!-- Empty State -->
+
+  <div
+    id="emptyState"
+    class="hidden text-center py-24"
+  >
+
+    <div class="text-8xl mb-6">
+      🎵
+    </div>
+
+    <h2 class="text-3xl font-bold mb-3">
+      No Music Yet
+    </h2>
+
+    <p class="text-white/60 max-w-md mx-auto mb-8">
+      Generate AI-powered melodies and start building your personal music collection.
+    </p>
+
+    <a
+      href="generate.html"
+      class="primary-btn"
+    >
+      Generate First Track
+    </a>
+
+  </div>
 
 </div>
 
