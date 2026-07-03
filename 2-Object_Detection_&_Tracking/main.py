@@ -9,7 +9,7 @@ import os
 from ultralytics import YOLO
 
 # Configuration
-SOURCE = 0 # Use 0 for laptop camera, "data/sample1.mp4" for video
+SOURCE =  "data/sample1.mp4" # Use 0 for laptop camera, "data/sample1.mp4" for video
 
 CONFIDENCE_THRESHOLD = 0.3
 SAVE_OUTPUT = True

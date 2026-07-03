@@ -15,39 +15,91 @@ function saveLibrary(items) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
 }
 
-function downloadUrl(url, filename) {
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = filename || "download";
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
+async function downloadUrl(url, filename) {
+
+  try {
+
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error("Download failed");
+    }
+
+    const blob = await response.blob();
+
+    const blobUrl = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = blobUrl;
+    a.download = filename || "download";
+
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+
+    URL.revokeObjectURL(blobUrl);
+
+  } catch (err) {
+
+    console.error(err);
+    alert("File not available at download time.");
+
+  }
 }
 
 function downloadMidi(item) {
-  if (item && item.midi_url) {
-    downloadUrl(item.midi_url, item.midi_filename || "generated.mid");
-  }
+
+  if (!item || !item.midi_url) return;
+
+  const midiUrl =
+    item.midi_url.startsWith("http")
+      ? item.midi_url
+      : `${API_URL}${item.midi_url}`;
+
+  downloadUrl(
+    midiUrl,
+    item.midi_filename || "generated.mid"
+  );
 }
 
 function downloadAudio(item) {
-  if (item && item.audio_url) {
-    downloadUrl(item.audio_url, item.audio_filename || "generated.wav");
-  }
+
+  if (!item || !item.audio_url) return;
+
+  const audioUrl =
+    item.audio_url.startsWith("http")
+      ? item.audio_url
+      : `${API_URL}${item.audio_url}`;
+
+  downloadUrl(
+    audioUrl,
+    item.audio_filename || "generated.wav"
+  );
 }
 
 async function playAudio(item) {
   try {
-    if (!item || !item.audio_url) throw new Error("Missing audio_url.");
+
+    if (!item || !item.audio_url) {
+      throw new Error("Missing audio_url.");
+    }
+
     if (currentAudio) {
       try {
         currentAudio.pause();
       } catch {}
     }
 
-    currentAudio = new Audio(item.audio_url);
+    const audioUrl =
+      item.audio_url.startsWith("http")
+        ? item.audio_url
+        : `${API_URL}${item.audio_url}`;
+
+    currentAudio = new Audio(audioUrl);
     currentAudio.volume = 0.9;
+
     await currentAudio.play();
+
   } catch (err) {
     console.error(err);
   }
